@@ -1,8 +1,23 @@
 import Image from "next/image";
 
+import Hero from "@/components/Hero"
+import Projects from "@/components/Projects"
+import Services from "@/components/Services"
+import About from "@/components/About"
+import Contact from "@/components/Contact"
+
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <>
+      <main>
+        <Hero/>
+        <Projects/>
+        <Services/>
+        <About/>
+        <Contact/>
+      </main>
+    </>
+    /* <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
@@ -60,6 +75,6 @@ export default function Home() {
           </a>
         </div>
       </main>
-    </div>
+    </div> */
   );
 }
