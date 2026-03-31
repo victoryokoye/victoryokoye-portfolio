@@ -20,8 +20,8 @@ export default function Services() {
   return (
     <>
       <section className="flex flex-col gap-8 py-10">
-        <div className="p-4">
-          <h2><span className="text-blue-500">Services</span>{" "}I Offer</h2>
+        <div className="p-4 flex flex-col gap-10">
+          <h2 className="text-center"><span className="text-brand">Services</span>{" "}I Offer</h2>
           <div className="flex gap-2 p-2">
             <div className="flex flex-col gap-8">
               <div key={services[0].id}>
@@ -103,8 +103,8 @@ function TechStack() {
       <ul className="flex animate-scroll gap-5">
         {
           duplicatedTechStack.map((tech, i) => (
-            <li key={i} className="border border-gray-400 bg-blue-800 p-3 rounded-full">
-              <h4>{tech.name}</h4>
+            <li key={i} className="border border-gray-400 py-3 px-6 rounded-full">
+              <h4 className="w-max">{tech.name}</h4>
             </li>
           ))
         }

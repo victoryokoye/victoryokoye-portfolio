@@ -56,28 +56,28 @@ export default function Footer() {
   ]
   return(
     <section className="bg-white">
-      <div className="flex gap-5 py-15 px-5">
-        <div>
-          <h3>Let's{" "}<span>Connect</span></h3>
-          <ul>
+      <div className="flex gap-5 py-10 px-8">
+        <div className="flex flex-col gap-5">
+          <h3>Let's{" "}<span className="text-brand">Connect</span></h3>
+          <ul className="flex flex-col gap-3">
             {
               socialLinks.map(link => (
-                <li className="text-blue-500">
+                <li key={link.id}>
                   <div></div>
-                  <p>{link.username}</p>
+                  <p className="text-brand">{link.username}</p>
                 </li>
               ))
             }
           </ul>
         </div>
-        <div>
+        <div className="flex flex-col gap-5">
           <h3>Navigation</h3>
-          <ul>
+          <ul className="flex flex-col gap-3">
             {
               navLinks.map(link => (
-                <li className="text-blue-500">
+                <li key={link.id}>
                   <div></div>
-                  <p>{link.name}</p>
+                  <p className="text-brand">{link.name}</p>
                 </li>
               ))
             }

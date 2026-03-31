@@ -55,34 +55,34 @@ export default function Projects() {
   ]
   return (
     <>
-      <section className="bg-white p-4 flex flex-col">
-        <h2>My{" "}<span className="text-blue-500">Projects</span></h2>
-        <div className="flex flex-col gap-10 p-2">
+      <section className="bg-white p-4 flex flex-col gap-8 pt-10 pb-15">
+        <h2 className="text-center">My{" "}<span className="text-brand">Projects</span></h2>
+        <div className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {
             projects.map(project => (
-              <div key={project.id} className="border border-gray-400 rounded-lg">
+              <div key={project.id} className="border border-border rounded-lg">
                 <div className="bg-gray-200 h-40"></div>
                 <div className="p-4 flex flex-col gap-1">
                   <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <p>{project.problem}</p>
-                  <p>{project.solution}</p>
+                  <p className="small">{project.description}</p>
+                  <p className="small"><span className="color-text">Problem:</span>{" "}{project.problem}</p>
+                  <p className="small"><span className="color-text">Solution:</span>{" "}{project.solution}</p>
                   <ul className="flex flex-wrap gap-1">
                     {
                       project.tools.map((tool, index) => (
-                        <li key={index} className="bg-blue-500 text-white rounded-full px-2">{tool}</li>
+                        <li key={index} className="bg-brand text-white rounded-full small px-2">{tool}</li>
                       ))
                     }
                   </ul>
                   <ul>
                     {
                       project.features.map((feature, index) => (
-                        <li key={index}>{feature}</li>
+                        <li key={index} className="small">{feature}</li>
                       ))
                     }
                   </ul>
-                  <p>{project.solution}</p>
-                  <button className="bg-blue-500 h-10 w-full rounded-sm text-white">Visit Site</button>
+                  <p className="small"><span className="color-text">Impact:</span>{" "}{project.impact}</p>
+                  <button className="bg-brand h-10 w-full rounded-sm">Visit Site</button>
                 </div>
                 
               </div>
