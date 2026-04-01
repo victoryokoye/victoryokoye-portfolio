@@ -56,8 +56,8 @@ export default function Footer() {
   ]
   return(
     <section className="bg-white">
-      <div className="flex gap-5 py-10 px-8">
-        <div className="flex flex-col gap-5">
+      <div className="flex gap-5 py-10 px-8 md:gap-10">
+        <div className="flex flex-col gap-5 w-[50%]">
           <h3>Let's{" "}<span className="text-brand">Connect</span></h3>
           <ul className="flex flex-col gap-3">
             {
@@ -70,7 +70,7 @@ export default function Footer() {
             }
           </ul>
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-[50%]">
           <h3>Navigation</h3>
           <ul className="flex flex-col gap-3">
             {
