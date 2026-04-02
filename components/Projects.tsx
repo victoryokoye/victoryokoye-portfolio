@@ -1,4 +1,7 @@
 
+import { FiArrowRight } from "react-icons/fi";
+import { FiCheckSquare } from "react-icons/fi";
+
 export default function Projects() {
   const projects = [
     {
@@ -55,9 +58,9 @@ export default function Projects() {
   ]
   return (
     <>
-      <section className="bg-white p-4 flex flex-col gap-8 pt-10 pb-15">
+      <section className="bg-white p-4 flex flex-col gap-8 pt-10 pb-15 lg:pt-20 lg:pb-25 lg:px-15">
         <h2 className="text-center">My{" "}<span className="text-brand">Projects</span></h2>
-        <div className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3">
           {
             projects.map(project => (
               <div key={project.id} className="border border-border rounded-lg">
@@ -77,12 +80,12 @@ export default function Projects() {
                   <ul>
                     {
                       project.features.map((feature, index) => (
-                        <li key={index} className="small">{feature}</li>
+                        <li key={index} className="small flex gap-1 items-center"><FiCheckSquare className="text-brand"/>{feature}</li>
                       ))
                     }
                   </ul>
                   <p className="small"><span className="color-text">Impact:</span>{" "}{project.impact}</p>
-                  <button className="bg-brand h-10 w-full rounded-sm">Visit Site</button>
+                  <button className="bg-brand h-10 w-full rounded-sm flex items-center justify-between px-4">Visit site<FiArrowRight className="text-lg"/></button>
                 </div>
                 
               </div>

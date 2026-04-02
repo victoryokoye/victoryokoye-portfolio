@@ -56,7 +56,7 @@ export default function Footer() {
   ]
   return(
     <section className="bg-white">
-      <div className="flex gap-5 py-10 px-8 md:gap-10">
+      <div className="flex gap-5 py-10 px-8 md:gap-10 lg:hidden">
         <div className="flex flex-col gap-5 w-[50%]">
           <h3>Let's{" "}<span className="text-brand">Connect</span></h3>
           <ul className="flex flex-col gap-3">
@@ -84,10 +84,21 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <hr />
-      <div className="py-5 px-2 flex justify-between">
+      <hr className="lg:hidden"/>
+      <div className="py-5 px-2 flex justify-between items-center lg:px-20">
         <p>@2026. All Rights Reserved.</p>
         <p>Designed by Victory Okoye.</p>
+        <div className="hidden lg:block">
+          <ul className="flex gap-3">
+            {
+              socialLinks.map(link => (
+                <li key={link.id}>
+                  <div className="size-5 bg-gray-200"></div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </section>
   )
