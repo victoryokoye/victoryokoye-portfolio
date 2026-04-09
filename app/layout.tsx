@@ -23,7 +23,46 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: "Victory Okoye | Web Developer",
-  description: "Victory Okoye's web development portfolio website.",
+  description: "I build modern, fast, and responsive web applications.",
+  keywords: [
+    "victory okoye",
+    "victory's portfolio",
+    "web developer",
+    "next.js developer",
+    "frontend developer",
+    "full stack developer",
+  ],
+  viewport: "width=device-width, initial-scale=1",
+  alternates: {
+    canonical: "https://"
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/",
+  },
+  openGraph: {
+    title: "Victory Okoye's Portfolio",
+    description: "Explore my portfolio website to see my projects and work",
+    url: "https://",
+    siteName: "Victory Okoye's Portfolio",
+    images: [
+      {
+        url: "",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Victory Okoye",
+    description: "Full Stack Developer Portfolio",
+    images: ["/"],
+  },
 };
 
 export default function RootLayout({

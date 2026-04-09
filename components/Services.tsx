@@ -1,3 +1,4 @@
+import FadeUp from "@/components/ui/FadeUp"
 
 import { FiPenTool, FiServer, FiLayout } from "react-icons/fi";
 import { SiHtml5, SiCss3, SiJavascript, SiTailwindcss, SiReact, SiNextdotjs, SiFigma, SiAdobe, SiFramer, SiNodedotjs, SiTypescript, SiFirebase, SiGit, SiGithub, SiMongodb, SiPostgresql } from "react-icons/si";
@@ -24,28 +25,30 @@ export default function Services() {
   ]
   return (
     <>
-      <section className="flex flex-col gap-8 py-10 lg:py-20">
+      <section id="services" className="flex flex-col gap-8 py-10 lg:py-20">
         <div className="p-4 flex flex-col gap-10 lg:gap-2 lg:px-20">
-          <h2><span className="text-brand">Services</span>{" "}I Offer</h2>
+          <FadeUp className="">
+            <h2 className="md-text"><span className="text-brand">Services</span>{" "}I Offer</h2>
+          </FadeUp>
           <div className="flex gap-2 p-2 lg:gap-15">
             <div className="flex flex-col gap-8 lg:gap-15 lg:flex-row">
-              <div key={services[0].id} className="lg:pt-20">
+              <FadeUp key={services[0].id} className="lg:mt-20">
                 <FiLayout className="text-brand text-xl" />
                 <h4>{services[0].title}</h4>
                 <p>{services[0].description}</p>
-              </div>
-              <div key={services[2].id}>
+              </FadeUp>
+              <FadeUp className="" key={services[2].id}>
                 <FiServer className="text-brand text-xl" />
                 <h4>{services[2].title}</h4>
                 <p>{services[2].description}</p>
-              </div>
+              </FadeUp>
             </div>
             <div className="flex items-center">
-              <div key={services[1].id} className="lg:pt-20">
+              <FadeUp key={services[1].id} className="lg:mt-20">
                 <FiPenTool className="text-brand text-xl" />
                 <h4>{services[1].title}</h4>
                 <p>{services[1].description}</p>
-              </div>
+              </FadeUp>
             </div>
           </div>
         </div>

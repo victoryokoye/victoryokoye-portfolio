@@ -1,3 +1,5 @@
+import FadeUp from "@/components/ui/FadeUp"
+import StaggerContainer from "@/components/ui/StaggerContainer"
 
 import { FiArrowRight } from "react-icons/fi";
 import { FiCheckSquare } from "react-icons/fi";
@@ -58,12 +60,14 @@ export default function Projects() {
   ]
   return (
     <>
-      <section className="bg-white p-4 flex flex-col gap-8 pt-10 pb-15 lg:pt-20 lg:pb-25 lg:px-15">
-        <h2 className="text-center">My{" "}<span className="text-brand">Projects</span></h2>
-        <div className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3">
+      <section id="projects" className="bg-bg-sec p-4 flex flex-col gap-8 pt-10 pb-15 lg:pt-20 lg:pb-25 lg:px-15">
+        <FadeUp className="">
+          <h2 className="text-center md-text">My{" "}<span className="text-brand">Projects</span></h2>
+        </FadeUp>
+        <StaggerContainer className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3">
           {
             projects.map(project => (
-              <div key={project.id} className="border border-border rounded-lg">
+              <FadeUp key={project.id} className="border border-border rounded-lg overflow-hidden">
                 <div className="bg-gray-200 h-40"></div>
                 <div className="p-4 flex flex-col gap-1">
                   <h3>{project.title}</h3>
@@ -85,13 +89,13 @@ export default function Projects() {
                     }
                   </ul>
                   <p className="small"><span className="color-text">Impact:</span>{" "}{project.impact}</p>
-                  <button className="bg-brand h-10 w-full rounded-sm flex items-center justify-between px-4">Visit site<FiArrowRight className="text-lg"/></button>
+                  <button className="bg-brand h-10 w-full rounded-sm flex items-center justify-between px-4 button cursor-pointer">Visit site<FiArrowRight className="text-lg"/></button>
                 </div>
                 
-              </div>
+              </FadeUp>
             ))
           }
-        </div>
+        </StaggerContainer>
       </section>
     </>
   );
