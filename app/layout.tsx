@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import { Geist, Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -32,7 +33,6 @@ export const metadata: Metadata = {
     "frontend developer",
     "full stack developer",
   ],
-  viewport: "width=device-width, initial-scale=1",
   alternates: {
     canonical: "https://"
   },
@@ -64,6 +64,11 @@ export const metadata: Metadata = {
     images: ["/"],
   },
 };
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1
+}
 
 export default function RootLayout({
   children,

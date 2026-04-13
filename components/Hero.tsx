@@ -10,7 +10,7 @@ export default function Hero() {
       <section id="hero" className="flex flex-col text-center pt-18 gap-2 lg:text-left lg:flex-row">
         <div className="flex items-center justify-center w-full h-max lg:h-150 lg:w-[50%]">
           <div className="relative h-max w-max flex items-center justify-center">
-            <FadeUp className="">
+            <FadeUp>
               <Image
                 src="/victory-okoye-picture.webp"
                 alt="Picture of Victory Okoye"
