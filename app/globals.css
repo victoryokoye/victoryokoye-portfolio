@@ -27,7 +27,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #222A44;
+    --bg: #080C1D;
     --bg-sec: #10183C;
     --text: #FFFFFF;
     --text-sec: #D9D9D9;
@@ -38,7 +38,7 @@
 }
 
 [data-theme="dark"] {
-  --bg: #222A44;
+  --bg: #080C1D;
   --bg-sec: #10183C;
   --text: #FFFFFF;
   --text-sec: #D9D9D9;

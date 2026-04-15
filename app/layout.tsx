@@ -34,23 +34,23 @@ export const metadata: Metadata = {
     "full stack developer",
   ],
   alternates: {
-    canonical: "https://"
+    canonical: "https://www.victoryokoye.vercel.app"
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: "/",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Victory Okoye's Portfolio",
     description: "Explore my portfolio website to see my projects and work",
-    url: "https://",
+    url: "https://victoryokoye.vercel.com",
     siteName: "Victory Okoye's Portfolio",
     images: [
       {
-        url: "",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
       },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Victory Okoye",
     description: "Full Stack Developer Portfolio",
-    images: ["/"],
+    images: ["/opengraph-image.jpg"],
   },
 };
 
