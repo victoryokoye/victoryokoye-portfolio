@@ -6,7 +6,8 @@
   --text: #000000;
   --text-sec: #222222;
   --border: #D9D9D9;
-  --brand: #124AFF;
+  --brand: #0080FF;
+  --brand-light: #0080FF;
   --white: #FFFFFF;
   --overlay: rgba(170, 200, 255, 0.85);
 }
@@ -19,6 +20,7 @@
   --color-text-sec: var(--text-sec);
   --color-border: var(--border);
   --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
   --color-overlay: var(--overlay);
   --font-sans: var(--font-open-sans);
   --font-gsans: var(--font-geist-sans);
@@ -51,6 +53,11 @@ body {
   background: var(--bg);
   color: var(--text); 
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.special-text {
+  font-size: 52px;
+  color: var(--brand-light);
 }
 
 .lg-text {

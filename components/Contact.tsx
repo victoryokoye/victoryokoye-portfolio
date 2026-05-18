@@ -36,7 +36,7 @@ export default function Contact() {
       <div className="flex flex-col gap-10 md:flex-row justify-between">
         <div className="md:w-[50%] flex lg:justify-center">
           <div className="flex flex-col w-max gap-8 lg:gap-12">
-            <FadeUp><h2 className="md-text"><span className="text-brand">Contact</span>{" "}me</h2></FadeUp>
+            <FadeUp><h2 className="md-text"><span className="special-text">Contact</span>{" "}me</h2></FadeUp>
             <StaggerContainer className="flex flex-col gap-5 w-max">
               {
                 contacts.map((contact, index) => {
@@ -44,7 +44,7 @@ export default function Contact() {
                   return(
                     <FadeUp key={index} className="flex gap-2">
                       <a href={contact.link} target="_blank" rel="noopener noreferrer" className="w-max h-max">
-                        <button className="button cursor-pointer bg-brand size-12 rounded-lg flex justify-center items-center">
+                        <button aria-label={`${contact.medium} link`} className="button cursor-pointer bg-brand size-12 rounded-lg flex justify-center items-center">
                           {Icon}
                         </button>
                       </a>
@@ -66,7 +66,7 @@ export default function Contact() {
             <ContactForm />
             <p className="text-center mt-3">Prefer WhatsApp?{" "}<a target="_blank" rel="noopener noreferrer"
               href="https://wa.me/2348105715843?text=Hello%2C%20I%20came%20across%20your%20portfolio%20and%20I%27m%20inerested%20in%20your%20web%20development%20services.%0A%0AProject%20type%3A%0ABudget%3A%0ATimeline%3A%0A%0ACan%20we%20discuss%20further%3F"
-             className="text-brand hover:underline">Message me</a>
+             className="text-brand-light hover:underline">Message me</a>
             </p>
           </div>
         </div>

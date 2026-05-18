@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: "/victory-okoye-logo-bg.jpg",
   },
   openGraph: {
     title: "Victory Okoye's Portfolio",

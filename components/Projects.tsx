@@ -61,8 +61,8 @@ export default function Projects() {
   return (
     <>
       <section id="projects" className="bg-bg-sec p-4 flex flex-col gap-8 pt-10 pb-15 lg:pt-20 lg:pb-25 lg:px-15">
-        <FadeUp className="">
-          <h2 className="text-center md-text">My{" "}<span className="text-brand">Projects</span></h2>
+        <FadeUp>
+          <h2 className="text-center md-text">My{" "}<span className="special-text">Projects</span></h2>
         </FadeUp>
         <StaggerContainer className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3">
           {
@@ -77,19 +77,19 @@ export default function Projects() {
                   <ul className="flex flex-wrap gap-1">
                     {
                       project.tools.map((tool, index) => (
-                        <li key={index} className="bg-brand text-white rounded-full small px-2">{tool}</li>
+                        <li key={index} className="bg-brand text-white rounded-full small px-2 py-0.5">{tool}</li>
                       ))
                     }
                   </ul>
                   <ul>
                     {
                       project.features.map((feature, index) => (
-                        <li key={index} className="small flex gap-1 items-center"><FiCheckSquare className="text-brand"/>{feature}</li>
+                        <li key={index} className="small flex gap-1 items-center"><FiCheckSquare className="text-brand-light"/>{feature}</li>
                       ))
                     }
                   </ul>
                   <p className="small"><span className="color-text">Impact:</span>{" "}{project.impact}</p>
-                  <button className="bg-brand h-10 w-full rounded-sm flex items-center justify-between px-4 button cursor-pointer">Visit site<FiArrowRight className="text-lg"/></button>
+                  <button aria-label={`Visit ${project.title}`} className="bg-brand h-10 w-full rounded-sm flex items-center justify-between px-4 button cursor-pointer">Visit site<FiArrowRight className="text-lg"/></button>
                 </div>
                 
               </FadeUp>

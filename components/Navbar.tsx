@@ -1,6 +1,6 @@
 "use client"
 
-import { div } from "framer-motion/client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { FiSun } from "react-icons/fi";
@@ -89,22 +89,28 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-bg-sec p-4 w-[100vw] border-b border-border flex lg:px-10 fixed z-30">
-        <div className="flex gap-2 items-center">
-          <div className="bg-brand rounded-full p-3 size-10 text-white flex items-center justify-center">V</div>
+        <div className="flex gap-3 items-center">
+          <Image
+            src="/victory-okoye-logo.svg"
+            alt="Victory Okoye Logo"
+            width={35}
+            height={35}
+            priority
+          />
           <h3>Victory Okoye</h3>
         </div>
         <div className="ml-auto flex gap-2">
-          <ul className="md:flex gap-2 hidden">
+          <div className="md:flex gap-2 hidden">
             {
               navLinks.map((link, index) => {
                 const isActive = activeSection === link.link;
                 return (<button key={index} onClick={() => handleClick(link.link)} className={`px-5 py-2 rounded-sm bg-none hover:text-white ${isActive ? "text-white bg-brand hover:bg-brand" : "text-text hover:bg-brand/80 bg-none"}`}>{ link.name }</button>)
               })
             }
-          </ul>
+          </div>
           <div className="flex items-center justify-center">
-            <button onClick={toggleTheme} className="cursor-pointer flex items-center justify-center px-2">{isDark ? <FiSun className="text-xl fill-text-sec hover:scale-120 transition-transform"/> : <FiMoon className="text-xl fill-text-sec hover:scale-120 transition-transform"/>}</button>
-            <button onClick={() => setMenuOpen(!menuOpen)} className="cursor-pointer flex items-center justify-center px-2 md:hidden">{menuOpen ? <FiX className="text-xl fill-text-sec hover:scale-120 transition-transform" /> : <FiMenu className="text-xl fill-text-sec hover:scale-120 transition-transform" />}</button>
+            <button aria-label="Theme toggle" onClick={toggleTheme} className="cursor-pointer flex items-center justify-center px-2">{isDark ? <FiSun className="text-xl fill-text-sec hover:scale-120 transition-transform"/> : <FiMoon className="text-xl fill-text-sec hover:scale-120 transition-transform"/>}</button>
+            <button aria-label="Menu toggle" onClick={() => setMenuOpen(!menuOpen)} className="cursor-pointer flex items-center justify-center px-2 md:hidden">{menuOpen ? <FiX className="text-xl fill-text-sec hover:scale-120 transition-transform" /> : <FiMenu className="text-xl fill-text-sec hover:scale-120 transition-transform" />}</button>
           </div>
         </div>
       </nav>
@@ -117,7 +123,7 @@ export default function Navbar() {
         {
           navLinks.map((link, index) => {
             const isActive = activeSection === link.link;
-            return (<button key={index} onClick={() => {handleClick(link.link); setMenuOpen(!menuOpen);}} className={`w-full py-5 px-10 text-left rounded-sm bg-none text-text ${isActive ? "font-bold bg-bg hover:bg-bg" : "hover:bg-bg bg-none"}`}>{ link.name }</button>)
+            return (<button aria-label={`${link.link} link`} key={index} onClick={() => {handleClick(link.link); setMenuOpen(!menuOpen);}} className={`w-full py-5 px-10 text-left rounded-sm bg-none ${isActive ? "font-bold text-brand bg-bg hover:bg-bg" : "text-text hover:bg-bg bg-none"}`}>{ link.name }</button>)
           })
         }
       </div>

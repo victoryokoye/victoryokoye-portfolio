@@ -8,18 +8,20 @@ export default function About() {
   return(
     <section id="about" className="text-center px-8 py-10 relative flex flex-col gap-5 lg:px-20 lg:py-20 bg-[url('/background-image.webp')] bg-cover bg-center">
       <div className="absolute inset-0 bg-overlay bg-gradient-to-b from-overlay to-transparent" />
-      <FadeUp className="z-10"><h2 className="md-text"><span className="text-brand">About</span>{" "}me</h2></FadeUp>
+      <FadeUp className="z-10"><h2 className="md-text"><span className="special-text">About</span>{" "}me</h2></FadeUp>
       <div className="flex flex-col gap-5 lg:flex-row z-10">
         <div className="flex flex-col gap-5 w-full items-center justify-center lg:w-[40%]">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
-            <div className="size-25 bg-white rounded-full m-auto overflow-hidden relative">
-              <Image
-                src="/victory-okoye-portrait-picture.webp"
-                alt="Portrait Picture of Victory Okoye"
-                width={300}
-                height={300}
-                className="object-cover"
-              />
+            <div className="h-full w-25 flex relative">
+              <div className="flex size-25 rounded-full bg-white overflow-hidden ring ring-2 ring-brand">
+                <Image
+                  src="/victory-okoye-portrait-picture.webp"
+                  alt="Portrait Picture of Victory Okoye"
+                  width={300}
+                  height={300}
+                  className="object-cover "
+                />
+              </div>
             </div>
             <div className="lg:text-left">
               <h3>Victory Okoye</h3>
@@ -28,12 +30,13 @@ export default function About() {
           </div>
           <a href="/cv.pdf" className="w-max hidden lg:block" target="_blank" rel="noopener noreferrer"><button className="button cursor-pointer bg-brand py-3 px-15 rounded-sm flex gap-2 m-auto">View CV</button></a>
         </div>
-        <div className="text-justify lg:w-[60%]">
-          <p>I'm a full-stack developer focused on building fast, responsive, and user-friendly web applications. I enjoy turning ideas into real products that solve practical problems, with a strong emphasis on performance, clean design, and scalability.</p><br />
-          <p>My work is heavily influenced by my interest in football and data, which has led me to build projects like analytics dashboards and interactive platforms. I use tools like Next.js, Tailwind CSS, and modern JavaScript frameworks to create smooth and engaging user experiences.</p><br />
+        <div className="text-justify lg:w-[60%] flex flex-col gap-3">
+          <p>I'm a full-stack developer focused on building fast, responsive, and user-friendly web applications. I enjoy turning ideas into real products that solve practical problems, with a strong emphasis on performance, clean design, and scalability.</p>
+          <p>I combine both theoretical knowledge from my Computer Science degree and practical knowledge from real-world experience to build great systems tailored to your specific needs.</p>
+          <p>My work is heavily influenced by my interest in solving real-world problems, which has led me to build projects like analytics dashboards and interactive platforms. I use tools like Next.js, Tailwind CSS, and modern JavaScript frameworks to create smooth and engaging user experiences.</p>
           <p>I'm constantly improving my skills, learning new technologies, and pushing myself to build better, more efficient systems. My goal is simple: to create applications that are not just functional, but genuinely useful and well-designed.</p>
         </div>
-        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="w-max m-auto lg:hidden"><button className="bg-brand text-white py-3 px-6 rounded-sm flex gap-2 m-auto">View CV{" "}<FiDownload className="text-lg"/></button></a>
+        <a aria-label="View my CV" href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="w-max m-auto lg:hidden"><button className="bg-brand text-white py-3 px-6 rounded-sm flex gap-2 m-auto">View CV{" "}<FiDownload className="text-lg"/></button></a>
       </div>
     </section>
   )
