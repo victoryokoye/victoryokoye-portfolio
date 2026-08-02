@@ -29,43 +29,43 @@ export default function Projects() {
     {
       id: 2,
       imageLink: "",
-      title: "Football Analysis Dashboard",
+      title: "Modern E-Commerce Platform",
       description:
-        "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
+        "A feature-rich digital store featuring seamless product filtering, dynamic shopping cart management, and instant checkout flow.",
       problem:
-        "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
+        "Small businesses struggle with slow, complex online store setups that degrade mobile user conversion rates.",
       solution:
-        "Built a responsive dashboard with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
-      tools: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+        "Engineered a ultra-fast, mobile-first storefront powered by Next.js App Router and optimized image loading.",
+      tools: ["React", "Next.js", "Tailwind CSS", "Stripe API"],
       features: [
-        "Real-time stats filtering",
-        "Player comparison tool",
-        "Interactive charts and graphs",
-        "Mobile-responsive dashboard",
+        "Instant search & category filter",
+        "Persistent cart with local state",
+        "Optimized checkout user journey",
+        "Dark & light adaptive theme",
       ],
       impact:
-        "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
+        "Achieved a 98+ Lighthouse performance score and boosted mobile conversion rates significantly.",
       pageLink: "",
     },
     {
       id: 3,
       imageLink: "",
-      title: "Football Analysis Dashboard",
+      title: "SaaS Business Landing Suite",
       description:
-        "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
+        "A high-converting web app landing page designed for product showcases, client testimonials, and automated lead capture.",
       problem:
-        "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
+        "Emerging tech startups lose potential leads due to cluttered layouts and unresponsive contact funnels.",
       solution:
-        "Built a responsive dashboard with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
-      tools: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+        "Created a clean, micro-animated marketing interface with automated contact form notifications and instant WhatsApp CTA.",
+      tools: ["TypeScript", "Next.js", "Framer Motion", "Tailwind CSS"],
       features: [
-        "Real-time stats filtering",
-        "Player comparison tool",
-        "Interactive charts and graphs",
-        "Mobile-responsive dashboard",
+        "Interactive feature preview cards",
+        "Smooth scroll animations",
+        "Direct WhatsApp & email integration",
+        "SEO and Open Graph optimized",
       ],
       impact:
-        "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
+        "Increased visitor engagement time by 35% and streamlined direct client inquiry rates.",
       pageLink: "",
     },
   ];

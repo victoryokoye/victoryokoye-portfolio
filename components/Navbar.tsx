@@ -91,7 +91,7 @@ export default function Navbar() {
               height={30}
               priority
             />
-            <h2 className="text-lg tracking-tight">Victory Okoye</h2>
+            <span className="text-lg font-semibold tracking-tight">Victory Okoye</span>
           </button>
 
           <div className="ml-auto flex items-center gap-2">
@@ -118,7 +118,11 @@ export default function Navbar() {
             <button
               type="button"
               aria-label={
-                isDark ? "Switch to light mode" : "Switch to dark mode"
+                !mounted
+                  ? "Toggle theme"
+                  : isDark
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
               }
               onClick={() => setTheme(isDark ? "light" : "dark")}
               className="theme-toggle relative cursor-pointer overflow-hidden p-2 transition-transform hover:scale-105 active:scale-95"

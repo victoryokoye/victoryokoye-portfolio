@@ -1,9 +1,6 @@
-
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { z } from 'zod';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const schema = z.object({
   name: z.string().min(2),
@@ -13,6 +10,14 @@ const schema = z.object({
 
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "Server configuration missing API key." },
+        { status: 500 }
+      );
+    }
+    const resend = new Resend(apiKey);
     const body = await req.json()
     const { name, email, message } = schema.parse(body)
 
