@@ -3,8 +3,10 @@ import type { Viewport } from "next";
 import { Geist, Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
+import Providers from "./providers";
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,7 @@ const geistSans = Geist({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: [ "400", "500", "600", "700"]
+  weight: ["400", "500", "600", "700"],
 });
 
 const openSans = Open_Sans({
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     "full stack developer",
   ],
   alternates: {
-    canonical: "https://www.victoryokoye.vercel.app"
+    canonical: "https://www.victoryokoye.vercel.app",
   },
   robots: {
     index: true,
@@ -67,8 +69,12 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   width: "device-width",
-  initialScale: 1
-}
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3f7fd" },
+    { media: "(prefers-color-scheme: dark)", color: "#070e1a" },
+  ],
+};
 
 export default function RootLayout({
   children,
@@ -78,12 +84,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${poppins.variable} ${openSans.variable} bg-background h-full antialiased`}
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${poppins.variable} ${openSans.variable} bg-bg h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="min-h-full flex flex-col bg-bg text-text">
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

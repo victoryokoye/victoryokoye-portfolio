@@ -1,29 +1,47 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
-import { FiSun } from "react-icons/fi";
-import { FiMoon } from "react-icons/fi";
-import { FiMenu } from "react-icons/fi";
-import { FiX } from "react-icons/fi";
+import { useTheme } from "next-themes";
+
+import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 export default function Navbar() {
-
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+  const [scrolled, setScrolled] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, {threshold: 0.6 });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.45 },
+    );
 
     sections.forEach((section) => observer.observe(section));
 
@@ -31,102 +49,147 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-
-    if (saved === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      setIsDark(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const handleClick = (id: string) => {
     setActiveSection(id);
-
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-    });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    }
+  const isDark = resolvedTheme === "dark";
 
-    setIsDark(!isDark);
-  };
-  
   const navLinks = [
-    {
-      name: "Home",
-      link: "hero"
-    },
-    {
-      name: "Projects",
-      link: "projects"
-    },
-    {
-      name: "Services",
-      link: "services"
-    },
-    {
-      name: "About",
-      link: "about"
-    },
-    {
-      name: "Contact",
-      link: "contact"
-    }
-  ]
+    { name: "Home", link: "hero" },
+    { name: "Projects", link: "projects" },
+    { name: "Services", link: "services" },
+    { name: "About", link: "about" },
+    { name: "Contact", link: "contact" },
+  ];
 
   return (
     <>
-      <nav className="bg-bg-sec p-4 w-[100vw] border-b border-border flex lg:px-10 fixed z-30">
-        <div className="flex gap-3 items-center">
-          <Image
-            src="/victory-okoye-logo.svg"
-            alt="Victory Okoye Logo"
-            width={35}
-            height={35}
-            priority
-          />
-          <h3>Victory Okoye</h3>
-        </div>
-        <div className="ml-auto flex gap-2">
-          <div className="md:flex gap-2 hidden">
-            {
-              navLinks.map((link, index) => {
+      <nav
+        className={`nav-glass fixed z-50 w-full border-b border-border px-4 py-3 transition-shadow duration-300 lg:px-10 ${
+          scrolled ? "shadow-[var(--shadow-soft)]" : ""
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center">
+          <button
+            type="button"
+            onClick={() => handleClick("hero")}
+            className="flex items-center gap-3 cursor-pointer"
+            aria-label="Go to home"
+          >
+            <Image
+              src="/victory-okoye-logo.svg"
+              alt="Victory Okoye Logo"
+              width={30}
+              height={30}
+              priority
+            />
+            <h2 className="text-lg tracking-tight">Victory Okoye</h2>
+          </button>
+
+          <div className="ml-auto flex items-center gap-2">
+            <div className="hidden gap-1 md:flex">
+              {navLinks.map((link) => {
                 const isActive = activeSection === link.link;
-                return (<button key={index} onClick={() => handleClick(link.link)} className={`px-5 py-2 rounded-sm bg-none hover:text-white ${isActive ? "text-white bg-brand hover:bg-brand" : "text-text hover:bg-brand/80 bg-none"}`}>{ link.name }</button>)
-              })
-            }
-          </div>
-          <div className="flex items-center justify-center">
-            <button aria-label="Theme toggle" onClick={toggleTheme} className="cursor-pointer flex items-center justify-center px-2">{isDark ? <FiSun className="text-xl fill-text-sec hover:scale-120 transition-transform"/> : <FiMoon className="text-xl fill-text-sec hover:scale-120 transition-transform"/>}</button>
-            <button aria-label="Menu toggle" onClick={() => setMenuOpen(!menuOpen)} className="cursor-pointer flex items-center justify-center px-2 md:hidden">{menuOpen ? <FiX className="text-xl fill-text-sec hover:scale-120 transition-transform" /> : <FiMenu className="text-xl fill-text-sec hover:scale-120 transition-transform" />}</button>
+                return (
+                  <button
+                    key={link.link}
+                    type="button"
+                    onClick={() => handleClick(link.link)}
+                    className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-brand text-on-brand"
+                        : "text-text-sec hover:bg-muted-surface hover:text-text"
+                    }`}
+                  >
+                    {link.name}
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="theme-toggle relative cursor-pointer overflow-hidden p-2 transition-transform hover:scale-105 active:scale-95"
+            >
+              {mounted ? (
+                <div className="relative flex items-center justify-center transition-transform duration-300">
+                  {isDark ? (
+                    <FiSun className="text-xl text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
+                  ) : (
+                    <FiMoon className="text-xl text-slate-700 transition-transform duration-300 rotate-0 hover:-rotate-12" />
+                  )}
+                </div>
+              ) : (
+                <span className="size-5" />
+              )}
+            </button>
+
+            <button
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="theme-toggle inline-flex cursor-pointer md:hidden"
+            >
+              {menuOpen ? (
+                <FiX className="text-xl" />
+              ) : (
+                <FiMenu className="text-xl" />
+              )}
+            </button>
           </div>
         </div>
       </nav>
-      {
-        menuOpen && (
-          <div className={`fixed inset-0 backdrop-blur-sm bg-black/50 z-10 transition-opacity ${menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}  onClick={() => setMenuOpen(false)} />
-        )
-        }
-      <div className={`fixed flex flex-col top-0 z-20 right-0 w-2/3 bg-bg-sec transform transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"} h-full mb-5 pt-18 lg:hidden`}>
-        {
-          navLinks.map((link, index) => {
+
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-20 bg-slate-950/60 backdrop-blur-md transition-opacity duration-300 md:hidden"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden
+        />
+      )}
+
+      <div
+        className={`fixed top-0 right-0 z-30 flex h-full w-[min(20rem,85vw)] flex-col border-l border-border bg-bg-sec/95 backdrop-blur-xl pt-24 px-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col gap-2">
+          {navLinks.map((link) => {
             const isActive = activeSection === link.link;
-            return (<button aria-label={`${link.link} link`} key={index} onClick={() => {handleClick(link.link); setMenuOpen(!menuOpen);}} className={`w-full py-5 px-10 text-left rounded-sm bg-none ${isActive ? "font-bold text-brand bg-bg hover:bg-bg" : "text-text hover:bg-bg bg-none"}`}>{ link.name }</button>)
-          })
-        }
+            return (
+              <button
+                type="button"
+                aria-label={`${link.name} section`}
+                key={link.link}
+                onClick={() => {
+                  handleClick(link.link);
+                  setMenuOpen(false);
+                }}
+                className={`w-full rounded-xl px-5 py-3.5 text-left text-base font-medium transition-all ${
+                  isActive
+                    ? "bg-brand text-on-brand shadow-sm font-semibold"
+                    : "text-text-sec hover:bg-muted-surface hover:text-text"
+                }`}
+              >
+                {link.name}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </>
   );
-};
+}

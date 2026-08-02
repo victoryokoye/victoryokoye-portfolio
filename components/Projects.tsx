@@ -1,8 +1,7 @@
-import FadeUp from "@/components/ui/FadeUp"
-import StaggerContainer from "@/components/ui/StaggerContainer"
+import FadeUp from "@/components/ui/FadeUp";
+import StaggerContainer from "@/components/ui/StaggerContainer";
 
-import { FiArrowRight } from "react-icons/fi";
-import { FiCheckSquare } from "react-icons/fi";
+import { FiArrowRight, FiCheckSquare } from "react-icons/fi";
 
 export default function Projects() {
   const projects = [
@@ -10,93 +9,154 @@ export default function Projects() {
       id: 1,
       imageLink: "",
       title: "Football Analysis Dashboard",
-      description: "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
-      problem: "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
-      solution: "Built a responsive dash board with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
-      tools: ["Next.js", "Typescript", "Tailwind CSS", "Chart.js"],
+      description:
+        "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
+      problem:
+        "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
+      solution:
+        "Built a responsive dashboard with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
+      tools: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
       features: [
         "Real-time stats filtering",
         "Player comparison tool",
         "Interactive charts and graphs",
-        "Mobile-responsive dashboard"
+        "Mobile-responsive dashboard",
       ],
-      impact: "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
-      pageLink: ""
+      impact:
+        "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
+      pageLink: "",
     },
     {
       id: 2,
       imageLink: "",
       title: "Football Analysis Dashboard",
-      description: "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
-      problem: "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
-      solution: "Built a responsive dash board with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
-      tools: ["Next.js", "Typescript", "Tailwind CSS", "Chart.js"],
+      description:
+        "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
+      problem:
+        "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
+      solution:
+        "Built a responsive dashboard with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
+      tools: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
       features: [
         "Real-time stats filtering",
         "Player comparison tool",
         "Interactive charts and graphs",
-        "Mobile-responsive dashboard"
+        "Mobile-responsive dashboard",
       ],
-      impact: "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
-      pageLink: ""
+      impact:
+        "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
+      pageLink: "",
     },
     {
       id: 3,
       imageLink: "",
       title: "Football Analysis Dashboard",
-      description: "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
-      problem: "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
-      solution: "Built a responsive dash board with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
-      tools: ["Next.js", "Typescript", "Tailwind CSS", "Chart.js"],
+      description:
+        "A real-time football analytics platform that tracks player performance, match stats, and team comparisons with interactive charts.",
+      problem:
+        "Football fans and analysts lack a simple platform to visualize player and team performance data in one place.",
+      solution:
+        "Built a responsive dashboard with dynamic charts and filtering to analyze players, teams, and match stats instantly.",
+      tools: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
       features: [
         "Real-time stats filtering",
         "Player comparison tool",
         "Interactive charts and graphs",
-        "Mobile-responsive dashboard"
+        "Mobile-responsive dashboard",
       ],
-      impact: "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
-      pageLink: ""
-    }
-  ]
+      impact:
+        "Improved data load speed by 40% and created a smooth user experience for analyzing complex football data.",
+      pageLink: "",
+    },
+  ];
+
   return (
-    <>
-      <section id="projects" className="bg-bg-sec p-4 flex flex-col gap-8 pt-10 pb-15 lg:pt-20 lg:pb-25 lg:px-15">
-        <FadeUp>
-          <h2 className="text-center md-text">My{" "}<span className="special-text">Projects</span></h2>
-        </FadeUp>
-        <StaggerContainer className="grid gap-10 p-2 md:grid-cols-2 lg:grid-cols-3">
-          {
-            projects.map(project => (
-              <FadeUp key={project.id} className="border border-border rounded-lg overflow-hidden">
-                <div className="bg-gray-200 h-40"></div>
-                <div className="p-4 flex flex-col gap-1">
-                  <h3>{project.title}</h3>
-                  <p className="small">{project.description}</p>
-                  <p className="small"><span className="color-text">Problem:</span>{" "}{project.problem}</p>
-                  <p className="small"><span className="color-text">Solution:</span>{" "}{project.solution}</p>
-                  <ul className="flex flex-wrap gap-1">
-                    {
-                      project.tools.map((tool, index) => (
-                        <li key={index} className="bg-brand text-white rounded-full small px-2 py-0.5">{tool}</li>
-                      ))
-                    }
-                  </ul>
-                  <ul>
-                    {
-                      project.features.map((feature, index) => (
-                        <li key={index} className="small flex gap-1 items-center"><FiCheckSquare className="text-brand-light"/>{feature}</li>
-                      ))
-                    }
-                  </ul>
-                  <p className="small"><span className="color-text">Impact:</span>{" "}{project.impact}</p>
-                  <button aria-label={`Visit ${project.title}`} className="bg-brand h-10 w-full rounded-sm flex items-center justify-between px-4 button cursor-pointer">Visit site<FiArrowRight className="text-lg"/></button>
+    <section
+      id="projects"
+      className="flex flex-col gap-10 bg-bg-sec px-4 pb-20 pt-16 lg:px-16 lg:pb-28 lg:pt-24"
+    >
+      <FadeUp>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="md-text">
+            My <span className="special-text">Projects</span>
+          </h2>
+          <p className="mt-3">
+            Selected work focused on useful products, clear UX, and solid
+            engineering.
+          </p>
+        </div>
+      </FadeUp>
+
+      <StaggerContainer className="mx-auto grid max-w-7xl gap-8 px-2 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <FadeUp key={project.id} className="h-full">
+            <article className="card group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-sec transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[var(--shadow-hover)] hover:border-brand/30">
+              <div className="relative flex h-48 items-center justify-center overflow-hidden bg-muted-surface">
+                <div
+                  className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,color-mix(in_srgb,var(--brand)_25%,transparent),transparent_65%)] transition-opacity duration-300 group-hover:opacity-80"
+                  aria-hidden
+                />
+                <span className="relative rounded-full border border-brand/20 bg-bg-sec/80 backdrop-blur-md px-3.5 py-1 text-xs font-semibold tracking-wide text-brand shadow-xs">
+                  Project preview
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col gap-3.5 p-6">
+                <h3 className="text-xl font-bold tracking-tight text-text leading-snug">{project.title}</h3>
+                <p className="text-sm leading-relaxed text-text-sec">{project.description}</p>
+
+                <div className="space-y-1.5 rounded-xl bg-muted-surface/50 p-3 text-xs">
+                  <p>
+                    <span className="font-semibold text-text">Problem:</span>{" "}
+                    <span className="text-text-sec">{project.problem}</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-text">Solution:</span>{" "}
+                    <span className="text-text-sec">{project.solution}</span>
+                  </p>
                 </div>
-                
-              </FadeUp>
-            ))
-          }
-        </StaggerContainer>
-      </section>
-    </>
+
+                <ul className="flex flex-wrap gap-1.5 py-1">
+                  {project.tools.map((tool) => (
+                    <li
+                      key={tool}
+                      className="rounded-lg border border-brand/20 bg-brand/10 px-2.5 py-1 text-xs font-medium text-brand"
+                    >
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+
+                <ul className="space-y-1.5">
+                  {project.features.map((feature) => (
+                    <li key={feature} className="text-xs text-text-sec flex items-start gap-2">
+                      <FiCheckSquare className="mt-0.5 shrink-0 text-brand text-sm" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="text-xs text-text-sec pt-1">
+                  <span className="font-semibold text-text">Impact:</span> {project.impact}
+                </p>
+
+                <a
+                  href={project.pageLink || "#contact"}
+                  className="mt-auto pt-3"
+                  {...(project.pageLink
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  <span className="square-button flex h-11 w-full cursor-pointer items-center justify-between rounded-xl px-4 text-sm font-semibold shadow-xs transition-all group-hover:shadow-md">
+                    {project.pageLink ? "Visit site" : "Discuss this project"}
+                    <FiArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </a>
+              </div>
+            </article>
+          </FadeUp>
+        ))}
+      </StaggerContainer>
+    </section>
   );
-};
+}
