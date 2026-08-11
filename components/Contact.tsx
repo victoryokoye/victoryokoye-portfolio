@@ -81,7 +81,7 @@ export default function Contact() {
                   </a>
                   <div>
                     <p className="text-sm">{contact.medium}</p>
-                    <h4 className="break-all">{contact.username}</h4>
+                    <h3 className="break-all text-base font-semibold">{contact.username}</h3>
                   </div>
                 </FadeUp>
               ))}

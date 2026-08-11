@@ -20,11 +20,28 @@ export default function Navbar() {
     getServerSnapshot,
   );
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
   const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    let lastScrollY = window.scrollY;
+
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 12);
+
+      if (currentScrollY <= 20) {
+        setVisible(true);
+      } else if (Math.abs(currentScrollY - lastScrollY) > 6) {
+        if (currentScrollY > lastScrollY) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+      }
+      lastScrollY = currentScrollY;
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -73,9 +90,9 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`nav-glass fixed z-50 w-full border-b border-border px-4 py-3 transition-shadow duration-300 lg:px-10 ${
+        className={`nav-glass fixed top-0 left-0 right-0 z-50 w-full border-b border-border px-4 py-3 transition-all duration-300 lg:px-10 ${
           scrolled ? "shadow-[var(--shadow-soft)]" : ""
-        }`}
+        } ${visible || menuOpen ? "translate-y-0" : "-translate-y-full"}`}
       >
         <div className="mx-auto flex max-w-7xl items-center">
           <button
@@ -89,9 +106,12 @@ export default function Navbar() {
               alt="Victory Okoye Logo"
               width={30}
               height={30}
+              className="h-5 w-auto"
               priority
             />
-            <span className="text-lg font-semibold tracking-tight">Victory Okoye</span>
+            <span className="text-lg font-semibold tracking-tight">
+              Victory Okoye
+            </span>
           </button>
 
           <div className="ml-auto flex items-center gap-2">
@@ -121,8 +141,8 @@ export default function Navbar() {
                 !mounted
                   ? "Toggle theme"
                   : isDark
-                  ? "Switch to light mode"
-                  : "Switch to dark mode"
+                    ? "Switch to light mode"
+                    : "Switch to dark mode"
               }
               onClick={() => setTheme(isDark ? "light" : "dark")}
               className="theme-toggle relative cursor-pointer overflow-hidden p-2 transition-transform hover:scale-105 active:scale-95"

@@ -216,7 +216,7 @@ p.white-sec-text,
 }
 
 .hero {
-  background: var(--gradient-bg);
+  background: var(--bg);
 }
 
 .card {

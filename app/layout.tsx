@@ -25,6 +25,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.victoryokoye.vercel.app"),
   title: "Victory Okoye | Web Developer",
   description: "I build modern, fast, and responsive web applications.",
   keywords: [
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "Victory Okoye's Portfolio",
     images: [
       {
-        url: "/opengraph-image.jpg",
+        url: "/images/opengraph-image.jpg",
         width: 1200,
         height: 630,
       },
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Victory Okoye",
     description: "Full Stack Developer Portfolio",
-    images: ["/opengraph-image.jpg"],
+    images: ["/images/opengraph-image.jpg"],
   },
 };
 

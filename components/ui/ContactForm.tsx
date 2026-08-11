@@ -60,6 +60,7 @@ export default function ContactForm() {
           {...register("name")}
           placeholder="Name"
           required
+          autoComplete="name"
           className={fieldClass}
         />
         {errors.name && (
@@ -77,6 +78,7 @@ export default function ContactForm() {
           {...register("email")}
           placeholder="Email"
           required
+          autoComplete="email"
           className={fieldClass}
         />
         {errors.email && (

@@ -5,42 +5,16 @@ import Counter from "@/components/ui/Counter";
 
 const socialLinks = [
   {
-    label: "Facebook",
-    href: "https://facebook.com/victorycokoye",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden>
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M15 7.5C15 3.35819 11.6418 0 7.5 0C3.35819 0 0 3.35819 0 7.5C0 11.2431 2.74226 14.346 6.32824 14.9094V9.66849H4.42343V7.5H6.32824V5.84726C6.32824 3.96776 7.44832 2.92889 9.16116 2.92889C9.9817 2.92889 10.8402 3.07548 10.8402 3.07548V4.92124H9.89416C8.96289 4.92124 8.67176 5.49922 8.67176 6.093V7.49994H10.7516L10.4194 9.66843H8.6717V14.9093C12.2577 14.3471 14.9999 11.2442 14.9999 7.49994L15 7.5Z"
-          fill="#1977F3"
-        />
-      </svg>
-    ),
-  },
-  {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/victory-okoye",
     icon: (
       <svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden>
         <path
           d="M13.125 1.875H1.875C1.52983 1.875 1.25 2.15483 1.25 2.5V12.5C1.25 12.8452 1.52983 13.125 1.875 13.125H13.125C13.4702 13.125 13.75 12.8452 13.75 12.5V2.5C13.75 2.15483 13.4702 1.875 13.125 1.875ZM5.21264 11.4619H3.54202V6.09375H5.21264V11.4619ZM4.37733 5.35922C3.84108 5.35922 3.4103 4.92516 3.4103 4.39125C3.4103 3.85781 3.84155 3.42422 4.37733 3.42422C4.91171 3.42422 5.34483 3.85781 5.34483 4.39125C5.34483 4.92516 4.91124 5.35922 4.37733 5.35922ZM11.4601 11.4619H9.79419V8.85138C9.79419 8.22888 9.78156 7.42781 8.92606 7.42781C8.0575 7.42781 7.92481 8.10519 7.92481 8.80544V11.4619H6.25887V6.09375H7.85919V6.82544H7.88075C8.10437 6.40356 8.64812 5.95828 9.46044 5.95828C11.1484 5.95828 11.4606 7.06925 11.4606 8.51531L11.4601 11.4619Z"
-          fill="#0A66C2"
+          fill="currentColor"
+          className="text-[#0A66C2]"
         />
       </svg>
-    ),
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/victory.c.okoye",
-    icon: (
-      <Image
-        src="/instagram.svg"
-        alt=""
-        width={16}
-        height={16}
-        className="size-4"
-      />
     ),
   },
   {
@@ -63,93 +37,153 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    label: "Facebook",
+    href: "https://facebook.com/victorycokoye",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden>
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M15 7.5C15 3.35819 11.6418 0 7.5 0C3.35819 0 0 3.35819 0 7.5C0 11.2431 2.74226 14.346 6.32824 14.9094V9.66849H4.42343V7.5H6.32824V5.84726C6.32824 3.96776 7.44832 2.92889 9.16116 2.92889C9.9817 2.92889 10.8402 3.07548 10.8402 3.07548V4.92124H9.89416C8.96289 4.92124 8.67176 5.49922 8.67176 6.093V7.49994H10.7516L10.4194 9.66843H8.6717V14.9093C12.2577 14.3471 14.9999 11.2442 14.9999 7.49994L15 7.5Z"
+          fill="#1977F3"
+        />
+      </svg>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/victory.c.okoye",
+    icon: (
+      <Image
+        src="/images/icons/instagram.svg"
+        alt=""
+        width={16}
+        height={16}
+        className="size-4"
+      />
+    ),
+  },
 ];
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="hero relative flex min-h-[100svh] flex-col justify-center gap-10 overflow-hidden px-5 pb-16 pt-18 text-center lg:flex-row lg:items-center lg:gap-16 lg:px-16 lg:pb-20 lg:pt-18 lg:text-left"
+      className="hero relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 pt-28 pb-16 lg:px-16 lg:pt-32 lg:pb-24"
     >
+      {/* Subtle background ambient glow */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-overlay/40 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-radial at-c from-brand/[0.06] via-transparent to-transparent blur-2xl"
         aria-hidden
       />
 
-      <div className="relative z-10 flex flex-col w-full items-end justify-center lg:w-[42%] lg:justify-end">
-        <FadeUp className="flex flex-col w-full justify-center">
-          <div className="relative">
-            <div
-              className="absolute -inset-6 rounded-full bg-brand/20 blur-3xl"
-              aria-hidden
-            />
-            <Image
-              src="/victory-okoye-picture.webp"
-              alt="Portrait of Victory Okoye"
-              width={420}
-              height={420}
-              priority
-              className="relative mx-auto h-auto w-[min(82vw,360px)] object-contain drop-shadow-[0_20px_50px_rgba(37,99,235,0.25)] transition-transform duration-500 hover:scale-[1.02]"
-            />
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-12 lg:gap-16">
+        {/* Main 2-column Hero content: Portrait (Left), Content (Right), Vertically Centered */}
+        <div className="flex w-full flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+          {/* Left Column: Polished Portrait Composition */}
+          <div className="flex w-full justify-center lg:w-[42%] lg:justify-start">
+            <FadeUp>
+              <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[390px]">
+                {/* Subtle blue ambient glow behind container */}
+                <div
+                  className="absolute -inset-4 rounded-[2.5rem] bg-brand/15 blur-2xl transition-all duration-500"
+                  aria-hidden
+                />
+
+                {/* Rounded Portrait Frame */}
+                <div className="relative overflow-hidden rounded-[2.25rem] border border-border/80 bg-gradient-to-b from-brand/10 via-muted-surface/40 to-bg-sec/90 shadow-[var(--shadow-soft)]">
+                  {/* Subtle radial backdrop glow behind head */}
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,color-mix(in_srgb,var(--brand)_22%,transparent),transparent_70%)]"
+                    aria-hidden
+                  />
+
+                  {/* Profile Image */}
+                  <Image
+                    src="/images/victory-okoye.png"
+                    alt="Portrait of Victory Okoye"
+                    width={440}
+                    height={440}
+                    priority
+                    className="relative mx-auto h-auto w-full pt-4 px-3 object-contain drop-shadow-md transition-transform duration-500 hover:scale-[1.02]"
+                  />
+
+                  {/* Soft bottom edge gradient blend to integrate cut-out cleanly */}
+                  <div
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-bg-sec via-bg-sec/75 to-transparent"
+                    aria-hidden
+                  />
+                </div>
+              </div>
+            </FadeUp>
           </div>
-          <div className="hidden md:block">
-            <Stats />
+
+          {/* Right Column: Hero Text Content */}
+          <div className="flex w-full flex-col items-center gap-7 text-center lg:w-[58%] lg:items-start lg:text-left">
+            <FadeUp>
+              <span className="inline-block rounded-full border border-brand/20 bg-brand/[0.08] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-brand shadow-xs">
+                Full-Stack Developer
+              </span>
+            </FadeUp>
+
+            <FadeUp>
+              <h1 className="lg-text max-w-2xl text-balance font-bold tracking-tight text-text lg:leading-[1.15]">
+                I build modern web applications that help businesses grow.
+              </h1>
+            </FadeUp>
+
+            <FadeUp>
+              <p className="max-w-2xl text-base leading-relaxed text-text-sec sm:text-lg sm:leading-relaxed">
+                I design and develop fast, responsive websites for businesses
+                and individuals — with a focus on clarity, performance, and
+                polish.
+              </p>
+            </FadeUp>
+
+            <FadeUp>
+              <div className="flex w-full flex-col items-center gap-4 pt-2 sm:flex-row sm:justify-center lg:justify-start">
+                <a href="#projects" className="w-full sm:w-auto">
+                  <span className="square-button flex h-12 w-full cursor-pointer items-center justify-center rounded-xl px-8 text-sm font-semibold shadow-md shadow-brand/20 transition-all hover:shadow-lg hover:shadow-brand/30">
+                    View Projects
+                  </span>
+                </a>
+                <a href="#contact" className="w-full sm:w-auto">
+                  <span className="flex h-12 w-full cursor-pointer items-center justify-center rounded-xl border border-border bg-bg-sec px-8 text-sm font-semibold text-text shadow-xs transition-all hover:border-brand/40 hover:bg-muted-surface hover:text-brand">
+                    Get in Touch
+                  </span>
+                </a>
+              </div>
+            </FadeUp>
+
+            <FadeUp>
+              <div className="flex items-center gap-3 pt-3">
+                <span className="text-xs font-semibold uppercase tracking-wider text-text-sec/70">
+                  Find me on
+                </span>
+                <div className="h-px w-6 bg-border" />
+                <ul className="flex items-center gap-2.5">
+                  {socialLinks.map((social) => (
+                    <li key={social.label}>
+                      <a
+                        aria-label={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex size-10 items-center justify-center rounded-xl border border-border bg-bg-sec text-text-sec shadow-2xs transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:text-brand hover:shadow-xs"
+                      >
+                        {social.icon}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
           </div>
-        </FadeUp>
-      </div>
-
-      <div className="relative z-10 flex w-full flex-col gap-8 lg:w-[50%] lg:gap-10">
-        <div className="flex flex-col gap-4">
-          <FadeUp>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
-              Victory Okoye
-            </p>
-            <h1 className="lg-text mt-2 font-bold tracking-tight">
-              Web Developer building products that solve real problems
-            </h1>
-          </FadeUp>
-
-          <FadeUp>
-            <p className="mx-auto max-w-md text-base leading-relaxed text-text-sec lg:mx-0 lg:max-w-lg">
-              I design and develop fast, responsive websites for businesses and
-              individuals — with a focus on clarity, performance, and polish.
-            </p>
-          </FadeUp>
-
-          <FadeUp>
-            <div className="mt-2 flex flex-wrap items-center justify-center gap-3.5 lg:justify-start">
-              <a href="#projects" className="inline-flex w-full sm:w-auto">
-                <span className="square-button flex h-12 w-full cursor-pointer items-center justify-center rounded-xl px-8 text-sm font-semibold shadow-md shadow-brand/20 hover:shadow-lg hover:shadow-brand/30">
-                  View Projects
-                </span>
-              </a>
-              <a href="#contact" className="inline-flex w-full sm:w-auto">
-                <span className="flex h-12 w-full cursor-pointer items-center justify-center rounded-xl border border-border bg-bg-sec px-8 text-sm font-semibold text-text shadow-sm transition-all hover:border-brand/40 hover:bg-muted-surface hover:text-brand">
-                  Get in Touch
-                </span>
-              </a>
-            </div>
-          </FadeUp>
-
-          <FadeUp>
-            <ul className="mt-3 flex items-center justify-center gap-3.5 lg:justify-start">
-              {socialLinks.map((social) => (
-                <li key={social.label}>
-                  <a
-                    aria-label={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex size-11 items-center justify-center rounded-xl border border-border bg-bg-sec shadow-xs transition-all hover:-translate-y-0.5 hover:scale-105 hover:border-brand/40 hover:shadow-md"
-                  >
-                    {social.icon}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </FadeUp>
         </div>
-        <div className="md:hidden">
+
+        {/* Standalone Stats Section at the Bottom of Hero */}
+        <div className="pt-6 lg:pt-8">
           <Stats />
         </div>
       </div>
@@ -157,31 +191,147 @@ export default function Hero() {
   );
 }
 
+// function Stats() {
+//   const stats = [
+//     { value: 3, suffix: "", label: "Projects Completed" },
+//     { value: 3, suffix: "+", label: "Years Experience" },
+//     { value: 50, suffix: "+", label: "Users Served" },
+//   ];
+
+//   return (
+//     <FadeUp>
+//       <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border bg-bg-sec/80 backdrop-blur-lg p-6 sm:p-8 shadow-[var(--shadow-soft)]">
+//         <div className="grid grid-cols-1 gap-6 divide-y divide-border sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-y-0">
+//           {stats.map((stat) => (
+//             <div
+//               key={stat.label}
+//               className="flex flex-col items-center text-center px-4 py-2 sm:py-0"
+//             >
+//               <div className="text-3xl font-extrabold tracking-tight text-text lg:text-4xl">
+//                 <Counter value={stat.value} />
+//                 <span className="text-brand">{stat.suffix}</span>
+//               </div>
+//               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-text-sec sm:text-sm">
+//                 {stat.label}
+//               </p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </FadeUp>
+//   );
+// }
+
+// function Stats() {
+//   const stats = [
+//     { value: 3, suffix: "", label: "Projects Completed" },
+//     { value: 3, suffix: "+", label: "Years Experience" },
+//     { value: 50, suffix: "+", label: "Users Served" },
+//   ];
+
+//   return (
+//     <FadeUp>
+//       <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border/70 bg-bg-sec/60 px-6 py-7 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:px-8 sm:py-8">
+//         <div className="grid grid-cols-1 sm:grid-cols-3">
+//           {stats.map((stat, index) => (
+//             <div
+//               key={stat.label}
+//               className={`flex flex-col items-center justify-center px-4 py-4 text-center sm:py-2 ${
+//                 index !== 0
+//                   ? "border-t border-border/70 sm:border-l sm:border-t-0"
+//                   : ""
+//               }`}
+//             >
+//               <div className="text-4xl font-extrabold tracking-tight text-text sm:text-4xl lg:text-5xl">
+//                 <Counter value={stat.value} />
+//                 <span className="text-brand">{stat.suffix}</span>
+//               </div>
+
+//               <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-text-sec sm:text-xs">
+//                 {stat.label}
+//               </p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </FadeUp>
+//   );
+// }
+
 function Stats() {
   const stats = [
-    { value: 3, suffix: "", text: "Projects Completed" },
-    { value: 3, suffix: "+", text: "Years Experience" },
-    { value: 50, suffix: "+", text: "Users Served" },
+    { value: 3, suffix: "", label: "Projects Completed" },
+    { value: 3, suffix: "+", label: "Years Experience" },
+    { value: 50, suffix: "+", label: "Users Served" },
   ];
 
   return (
     <FadeUp>
-      <div className="mx-auto grid w-full max-w-md grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border bg-border shadow-[var(--shadow-soft)] lg:mx-0 lg:max-w-lg">
-        {stats.map((stat) => (
-          <div
-            key={stat.text}
-            className="flex flex-col items-center bg-bg-sec/90 backdrop-blur-md px-3 py-4 sm:py-5"
-          >
-            <div className="text-xl font-bold tracking-tight text-text sm:text-2xl md:text-3xl">
-              <Counter value={stat.value} />
-              {stat.suffix}
-            </div>
-            <p className="small mt-1 text-center text-xs sm:text-sm text-text-sec">
-              {stat.text}
-            </p>
+      <section className="relative mx-auto w-full max-w-5xl overflow-hidden px-2 py-6 sm:px-4 sm:py-8">
+        {/* Ambient glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/10 blur-3xl"
+        />
+
+        {/* Section header */}
+        <div className="mb-8 flex items-center gap-4">
+          <span className="h-px flex-1 bg-border/70" />
+
+          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-text-sec sm:text-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand shadow-[0_0_10px_var(--brand)]" />
+            Impact
           </div>
-        ))}
-      </div>
+
+          <span className="h-px flex-1 bg-border/70" />
+        </div>
+
+        {/* Metrics */}
+        <div className="relative grid grid-cols-1 sm:grid-cols-3">
+          {stats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={`group relative flex flex-col items-center px-6 py-6 text-center sm:py-4 ${
+                index !== 0
+                  ? "border-t border-border/60 sm:border-l sm:border-t-0"
+                  : ""
+              }`}
+            >
+              {/* Metric number */}
+              <div className="relative">
+                <div className="absolute inset-0 -z-10 scale-75 rounded-full bg-brand/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="text-5xl font-black leading-none tracking-[-0.06em] text-text sm:text-6xl lg:text-7xl">
+                  <span>
+                    {stat.value < 10 ? "0" : ""}
+                    <Counter value={stat.value} />
+                  </span>
+                  <span className="text-brand">{stat.suffix}</span>
+                </div>
+              </div>
+
+              {/* Label */}
+              <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-text-sec sm:text-xs">
+                {stat.label}
+              </p>
+
+              {/* Bottom accent */}
+              <div className="mt-5 h-px w-8 bg-brand/40 transition-all duration-300 group-hover:w-14 group-hover:bg-brand" />
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom statement */}
+        <div className="mt-8 flex items-center gap-4">
+          <span className="h-px w-8 bg-brand/50" />
+
+          <p className="text-center text-xs font-medium tracking-wide text-text-sec sm:text-sm">
+            Building digital experiences that turn ideas into useful products.
+          </p>
+
+          <span className="h-px flex-1 bg-border/60" />
+        </div>
+      </section>
     </FadeUp>
   );
 }

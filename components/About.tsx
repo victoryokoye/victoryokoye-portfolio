@@ -8,12 +8,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative flex flex-col gap-8 bg-[url('/background-image.webp')] bg-cover bg-center px-6 py-16 text-center lg:px-20 lg:py-24"
+      className="relative flex flex-col gap-8 bg-[url('/images/background-image.webp')] bg-cover bg-center px-6 py-16 text-center lg:px-20 lg:py-24"
     >
-      <div
-        className="absolute inset-0 bg-about-overlay"
-        aria-hidden
-      />
+      <div className="absolute inset-0 bg-about-overlay" aria-hidden />
 
       <FadeUp className="relative z-10">
         <h2 className="md-text text-about-text">
@@ -26,7 +23,7 @@ export default function About() {
           <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:text-left">
             <div className="size-24 overflow-hidden rounded-full ring-2 ring-brand ring-offset-2 ring-offset-transparent">
               <Image
-                src="/victory-okoye-portrait-picture.webp"
+                src="/images/victory-okoye-portrait-picture.webp"
                 alt="Portrait of Victory Okoye"
                 width={300}
                 height={300}
@@ -34,7 +31,9 @@ export default function About() {
               />
             </div>
             <div className="text-about-text">
-              <h3 className="text-base font-medium opacity-90">Victory Okoye</h3>
+              <h3 className="text-base font-medium opacity-90">
+                Victory Okoye
+              </h3>
               <p className="md-text about-sec-text !text-about-text">
                 Web Developer
               </p>
@@ -54,7 +53,7 @@ export default function About() {
           </a>
         </div>
 
-        <div className="flex flex-col gap-4 text-left lg:w-[62%]">
+        <div className="flex flex-col gap-4 text-justify lg:w-[62%] lg:text-left">
           <p className="about-sec-text">
             I&apos;m a full-stack developer focused on building fast,
             responsive, and user-friendly web applications. I enjoy turning
