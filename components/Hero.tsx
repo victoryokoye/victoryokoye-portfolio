@@ -79,47 +79,9 @@ export default function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-12 lg:gap-16">
-        {/* Main 2-column Hero content: Portrait (Left), Content (Right), Vertically Centered */}
+        {/* Main 2-column Hero content: Portrait (Right), Content (Left), Vertically Centered */}
         <div className="flex w-full flex-col items-center gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-          {/* Left Column: Polished Portrait Composition */}
-          <div className="flex w-full justify-center lg:w-[42%] lg:justify-start">
-            <FadeUp>
-              <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[390px]">
-                {/* Subtle blue ambient glow behind container */}
-                <div
-                  className="absolute -inset-4 rounded-[2.5rem] bg-brand/15 blur-2xl transition-all duration-500"
-                  aria-hidden
-                />
-
-                {/* Rounded Portrait Frame */}
-                <div className="relative overflow-hidden rounded-[2.25rem] border border-border/80 bg-gradient-to-b from-brand/10 via-muted-surface/40 to-bg-sec/90 shadow-[var(--shadow-soft)]">
-                  {/* Subtle radial backdrop glow behind head */}
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,color-mix(in_srgb,var(--brand)_22%,transparent),transparent_70%)]"
-                    aria-hidden
-                  />
-
-                  {/* Profile Image */}
-                  <Image
-                    src="/images/victory-okoye.png"
-                    alt="Portrait of Victory Okoye"
-                    width={440}
-                    height={440}
-                    priority
-                    className="relative mx-auto h-auto w-full pt-4 px-3 object-contain drop-shadow-md transition-transform duration-500 hover:scale-[1.02]"
-                  />
-
-                  {/* Soft bottom edge gradient blend to integrate cut-out cleanly */}
-                  <div
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-bg-sec via-bg-sec/75 to-transparent"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-            </FadeUp>
-          </div>
-
-          {/* Right Column: Hero Text Content */}
+          {/* Left Column: Hero Text Content */}
           <div className="flex w-full flex-col items-center gap-7 text-center lg:w-[58%] lg:items-start lg:text-left">
             <FadeUp>
               <span className="inline-block rounded-full border border-brand/20 bg-brand/[0.08] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-brand shadow-xs">
@@ -180,6 +142,44 @@ export default function Hero() {
               </div>
             </FadeUp>
           </div>
+
+          {/* Right Column: Polished Portrait Composition */}
+          <div className="flex w-full justify-center lg:w-[42%] lg:justify-start">
+            <FadeUp>
+              <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[390px]">
+                {/* Subtle blue ambient glow behind container */}
+                <div
+                  className="absolute -inset-4 rounded-[2.5rem] bg-brand/15 blur-2xl transition-all duration-500"
+                  aria-hidden
+                />
+
+                {/* Rounded Portrait Frame */}
+                <div className="relative overflow-hidden rounded-[2.25rem] border border-border/80 bg-gradient-to-b from-brand/10 via-muted-surface/40 to-bg-sec/90 shadow-[var(--shadow-soft)]">
+                  {/* Subtle radial backdrop glow behind head */}
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,color-mix(in_srgb,var(--brand)_22%,transparent),transparent_70%)]"
+                    aria-hidden
+                  />
+
+                  {/* Profile Image */}
+                  <Image
+                    src="/images/victory-okoye.png"
+                    alt="Portrait of Victory Okoye"
+                    width={440}
+                    height={440}
+                    priority
+                    className="relative mx-auto h-auto w-full pt-4 px-3 object-contain drop-shadow-md transition-transform duration-500 hover:scale-[1.02]"
+                  />
+
+                  {/* Soft bottom edge gradient blend to integrate cut-out cleanly */}
+                  <div
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-bg-sec via-bg-sec/75 to-transparent"
+                    aria-hidden
+                  />
+                </div>
+              </div>
+            </FadeUp>
+          </div>
         </div>
 
         {/* Standalone Stats Section at the Bottom of Hero */}
@@ -190,73 +190,6 @@ export default function Hero() {
     </section>
   );
 }
-
-// function Stats() {
-//   const stats = [
-//     { value: 3, suffix: "", label: "Projects Completed" },
-//     { value: 3, suffix: "+", label: "Years Experience" },
-//     { value: 50, suffix: "+", label: "Users Served" },
-//   ];
-
-//   return (
-//     <FadeUp>
-//       <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border bg-bg-sec/80 backdrop-blur-lg p-6 sm:p-8 shadow-[var(--shadow-soft)]">
-//         <div className="grid grid-cols-1 gap-6 divide-y divide-border sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-y-0">
-//           {stats.map((stat) => (
-//             <div
-//               key={stat.label}
-//               className="flex flex-col items-center text-center px-4 py-2 sm:py-0"
-//             >
-//               <div className="text-3xl font-extrabold tracking-tight text-text lg:text-4xl">
-//                 <Counter value={stat.value} />
-//                 <span className="text-brand">{stat.suffix}</span>
-//               </div>
-//               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-text-sec sm:text-sm">
-//                 {stat.label}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </FadeUp>
-//   );
-// }
-
-// function Stats() {
-//   const stats = [
-//     { value: 3, suffix: "", label: "Projects Completed" },
-//     { value: 3, suffix: "+", label: "Years Experience" },
-//     { value: 50, suffix: "+", label: "Users Served" },
-//   ];
-
-//   return (
-//     <FadeUp>
-//       <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border/70 bg-bg-sec/60 px-6 py-7 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:px-8 sm:py-8">
-//         <div className="grid grid-cols-1 sm:grid-cols-3">
-//           {stats.map((stat, index) => (
-//             <div
-//               key={stat.label}
-//               className={`flex flex-col items-center justify-center px-4 py-4 text-center sm:py-2 ${
-//                 index !== 0
-//                   ? "border-t border-border/70 sm:border-l sm:border-t-0"
-//                   : ""
-//               }`}
-//             >
-//               <div className="text-4xl font-extrabold tracking-tight text-text sm:text-4xl lg:text-5xl">
-//                 <Counter value={stat.value} />
-//                 <span className="text-brand">{stat.suffix}</span>
-//               </div>
-
-//               <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-text-sec sm:text-xs">
-//                 {stat.label}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </FadeUp>
-//   );
-// }
 
 function Stats() {
   const stats = [
