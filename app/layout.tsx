@@ -5,6 +5,8 @@ import "./globals.css";
 
 import Providers from "./providers";
 
+import { Analytics } from "@vercel/analytics/next";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -49,22 +51,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Victory Okoye's Portfolio",
     description: "Explore my portfolio website to see my projects and work",
-    url: "https://victoryokoye.vercel.com",
+    url: "https://www.victoryokoye.vercel.app",
     siteName: "Victory Okoye's Portfolio",
-    images: [
-      {
-        url: "/images/opengraph-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Victory Okoye",
     description: "Full Stack Developer Portfolio",
-    images: ["/images/opengraph-image.jpg"],
   },
 };
 
@@ -89,6 +83,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${poppins.variable} ${openSans.variable} bg-bg h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-text">
+        <Analytics />
         <Providers>
           <Navbar />
           {children}

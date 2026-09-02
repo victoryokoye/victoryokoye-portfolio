@@ -150,9 +150,9 @@ export default function Navbar() {
               {mounted ? (
                 <div className="relative flex items-center justify-center transition-transform duration-300">
                   {isDark ? (
-                    <FiSun className="text-xl text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
+                    <FiSun className="text-xl text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" aria-hidden="true" />
                   ) : (
-                    <FiMoon className="text-xl text-slate-700 transition-transform duration-300 rotate-0 hover:-rotate-12" />
+                    <FiMoon className="text-xl text-slate-700 transition-transform duration-300 rotate-0 hover:-rotate-12" aria-hidden="true" />
                   )}
                 </div>
               ) : (
@@ -168,9 +168,9 @@ export default function Navbar() {
               className="theme-toggle inline-flex cursor-pointer md:hidden"
             >
               {menuOpen ? (
-                <FiX className="text-xl" />
+                <FiX className="text-xl" aria-hidden="true" />
               ) : (
-                <FiMenu className="text-xl" />
+                <FiMenu className="text-xl" aria-hidden="true" />
               )}
             </button>
           </div>

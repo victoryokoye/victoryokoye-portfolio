@@ -73,7 +73,7 @@ export default function Services() {
                   }`}
                 >
                   <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                    <Icon className="text-2xl" />
+                    <Icon className="text-2xl" aria-hidden="true" />
                   </div>
                   <h3 className="mb-2 text-lg">{service.title}</h3>
                   <p>{service.description}</p>
@@ -123,7 +123,11 @@ function TechStack() {
               key={`${tech.name}-${i}`}
               className="flex items-center gap-2 rounded-full border border-border bg-bg-sec px-5 py-3 shadow-[var(--shadow-soft)]"
             >
-              <Icon className="text-brand-light" />
+              <Icon
+                className="text-brand-light"
+                role={undefined}
+                aria-hidden="true"
+              />
               <span className="w-max text-sm font-medium text-text">
                 {tech.name}
               </span>

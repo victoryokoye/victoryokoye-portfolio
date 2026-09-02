@@ -8,7 +8,14 @@ const socialLinks = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/victory-okoye",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 15 15"
+        fill="none"
+        focusable="false"
+        aria-hidden="true"
+      >
         <path
           d="M13.125 1.875H1.875C1.52983 1.875 1.25 2.15483 1.25 2.5V12.5C1.25 12.8452 1.52983 13.125 1.875 13.125H13.125C13.4702 13.125 13.75 12.8452 13.75 12.5V2.5C13.75 2.15483 13.4702 1.875 13.125 1.875ZM5.21264 11.4619H3.54202V6.09375H5.21264V11.4619ZM4.37733 5.35922C3.84108 5.35922 3.4103 4.92516 3.4103 4.39125C3.4103 3.85781 3.84155 3.42422 4.37733 3.42422C4.91171 3.42422 5.34483 3.85781 5.34483 4.39125C5.34483 4.92516 4.91124 5.35922 4.37733 5.35922ZM11.4601 11.4619H9.79419V8.85138C9.79419 8.22888 9.78156 7.42781 8.92606 7.42781C8.0575 7.42781 7.92481 8.10519 7.92481 8.80544V11.4619H6.25887V6.09375H7.85919V6.82544H7.88075C8.10437 6.40356 8.64812 5.95828 9.46044 5.95828C11.1484 5.95828 11.4606 7.06925 11.4606 8.51531L11.4601 11.4619Z"
           fill="currentColor"
@@ -26,6 +33,7 @@ const socialLinks = [
         height="16"
         viewBox="0 0 15 15"
         fill="currentColor"
+        focusable="false"
         className="text-text"
         aria-hidden
       >
@@ -41,7 +49,14 @@ const socialLinks = [
     label: "Facebook",
     href: "https://facebook.com/victorycokoye",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 15 15"
+        fill="none"
+        focusable="false"
+        aria-hidden="true"
+      >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -117,34 +132,10 @@ export default function Hero() {
                 </a>
               </div>
             </FadeUp>
-
-            <FadeUp>
-              <div className="flex items-center gap-3 pt-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-text-sec/70">
-                  Find me on
-                </span>
-                <div className="h-px w-6 bg-border" />
-                <ul className="flex items-center gap-2.5">
-                  {socialLinks.map((social) => (
-                    <li key={social.label}>
-                      <a
-                        aria-label={social.label}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex size-10 items-center justify-center rounded-xl border border-border bg-bg-sec text-text-sec shadow-2xs transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:text-brand hover:shadow-xs"
-                      >
-                        {social.icon}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeUp>
           </div>
 
           {/* Right Column: Polished Portrait Composition */}
-          <div className="flex w-full justify-center lg:w-[42%] lg:justify-start">
+          <div className="flex flex-col gap-5 w-full items-center justify-center lg:w-[42%] lg:justify-start">
             <FadeUp>
               <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[390px]">
                 {/* Subtle blue ambient glow behind container */}
@@ -177,6 +168,29 @@ export default function Hero() {
                     aria-hidden
                   />
                 </div>
+              </div>
+            </FadeUp>
+            <FadeUp>
+              <div className="flex items-center gap-3 pt-3">
+                <span className="text-xs font-semibold uppercase tracking-wider text-text-sec/70">
+                  Find me on
+                </span>
+                <div className="h-px w-6 bg-border" />
+                <ul className="flex items-center gap-2.5">
+                  {socialLinks.map((social) => (
+                    <li key={social.label}>
+                      <a
+                        aria-label={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex size-10 items-center justify-center rounded-xl border border-border bg-bg-sec text-text-sec shadow-2xs transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:text-brand hover:shadow-xs"
+                      >
+                        {social.icon}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </FadeUp>
           </div>

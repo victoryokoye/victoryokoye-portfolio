@@ -110,7 +110,7 @@ export default function ContactForm() {
         className="square-button flex h-12 w-full cursor-pointer items-center justify-between px-4 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50"
       >
         {status === "loading" ? "Sending..." : "Send Message"}
-        <FiArrowRight />
+        <FiArrowRight aria-hidden="true" />
       </button>
 
       {status === "success" && (
