@@ -82,6 +82,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${poppins.variable} ${openSans.variable} bg-bg h-full antialiased`}
     >
+      <head>
+        <meta
+          name="google-site-verification"
+          content="1Mg7uxhqDNnt84ml-QT80lxTORDn8DaaHL4VXoxKXdU"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-bg text-text">
         <Analytics />
         <Providers>
