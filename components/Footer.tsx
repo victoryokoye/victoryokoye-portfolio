@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const socialLinks = [
     {
@@ -93,11 +95,11 @@ export default function Footer() {
   ];
 
   const navLinks = [
-    { id: 1, name: "Home", link: "#hero" },
-    { id: 2, name: "Projects", link: "#projects" },
-    { id: 3, name: "Services", link: "#services" },
-    { id: 4, name: "About", link: "#about" },
-    { id: 5, name: "Contact", link: "#contact" },
+    { id: 1, name: "Home", link: "/#hero" },
+    { id: 2, name: "Projects", link: "/projects" },
+    { id: 3, name: "Services", link: "/#services" },
+    { id: 4, name: "About", link: "/#about" },
+    { id: 5, name: "Contact", link: "/#contact" },
   ];
 
   return (
@@ -128,12 +130,12 @@ export default function Footer() {
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <li key={link.id}>
-                <a
+                <Link
                   href={link.link}
                   className="text-sm text-brand hover:underline"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

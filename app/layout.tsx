@@ -27,7 +27,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.victoryokoye.vercel.app"),
+  metadataBase: new URL("https://victoryokoye.vercel.app"),
   title: "Victory Okoye | Web Developer",
   description: "I build modern, fast, and responsive web applications.",
   keywords: [
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "full stack developer",
   ],
   alternates: {
-    canonical: "https://www.victoryokoye.vercel.app",
+    canonical: "https://victoryokoye.vercel.app",
   },
   robots: {
     index: true,
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Victory Okoye's Portfolio",
     description: "Explore my portfolio website to see my projects and work",
-    url: "https://www.victoryokoye.vercel.app",
+    url: "https://victoryokoye.vercel.app",
     siteName: "Victory Okoye's Portfolio",
     type: "website",
   },
@@ -76,6 +76,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Victory Okoye",
+    url: "https://victoryokoye.vercel.app",
+    jobTitle: "Full-Stack Developer",
+    sameAs: [
+      "https://www.linkedin.com/in/victory-okoye",
+      "https://github.com/victoryokoye",
+    ],
+  };
   return (
     <html
       lang="en"
@@ -89,6 +100,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-bg text-text">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
         <Analytics />
         <Providers>
           <Navbar />

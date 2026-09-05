@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState, useSyncExternalStore } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 import { useTheme } from "next-themes";
 
@@ -22,6 +23,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const { resolvedTheme, setTheme } = useTheme();
+
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -47,7 +51,10 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const sections = document.querySelectorAll("section");
+    if (sections.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -63,7 +70,7 @@ export default function Navbar() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -73,11 +80,28 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const handleClick = (id: string) => {
+    if (pathname !== "/") {
+      if (id === "projects") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push(id === "hero" ? "/" : `/#${id}`);
+      }
+      return;
+    }
     setActiveSection(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleLogoClick = () => {
+    if (pathname !== "/") {
+      router.push("/");
+      return;
+    }
+    handleClick("hero");
+  };
+
   const isDark = resolvedTheme === "dark";
+  const currentSection = pathname === "/projects" ? "projects" : activeSection;
 
   const navLinks = [
     { name: "Home", link: "hero" },
@@ -97,7 +121,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center">
           <button
             type="button"
-            onClick={() => handleClick("hero")}
+            onClick={handleLogoClick}
             className="flex items-center gap-3 cursor-pointer"
             aria-label="Go to home"
           >
@@ -117,7 +141,7 @@ export default function Navbar() {
           <div className="ml-auto flex items-center gap-2">
             <div className="hidden gap-1 md:flex">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.link;
+                const isActive = currentSection === link.link;
                 return (
                   <button
                     key={link.link}
@@ -192,7 +216,7 @@ export default function Navbar() {
       >
         <div className="flex flex-col gap-2">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.link;
+            const isActive = currentSection === link.link;
             return (
               <button
                 type="button"

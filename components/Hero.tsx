@@ -112,9 +112,9 @@ export default function Hero() {
 
             <FadeUp>
               <p className="max-w-2xl text-base leading-relaxed text-text-sec sm:text-lg sm:leading-relaxed">
-                I design and develop fast, responsive websites for businesses
-                and individuals — with a focus on clarity, performance, and
-                polish.
+                I&apos;m Victory Okoye, a full-stack developer focused on
+                creating fast, responsive, and user-friendly websites that help
+                businesses build a strong online presence.
               </p>
             </FadeUp>
 
